@@ -15,3 +15,9 @@ Partial testing was carried out on the service layers of the project
 
 ## Motivation
 The motivation of this project is to consolidate my learnings and journey in software development using Spring frame work and Spring boot.
+
+## How to use this project
+1. Clone or Fork this repo and edit the application.properties file to reflect your environment (Data base implementation)
+2. use an API testing tool like postman to register by hitting the url: localhost:{portnumber}/register and hittiing the various url on the controllers , you can access the project.
+3. kindly raise an issue if there is any issue that is related to what i have implemented. if I have not implemented them, include them in yours.
+4. if you are a front-end developer, you can implement a front end for this project and notify me.
