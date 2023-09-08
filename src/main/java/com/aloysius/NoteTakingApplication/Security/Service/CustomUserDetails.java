@@ -1,25 +1,23 @@
 package com.aloysius.NoteTakingApplication.Security.Service;
 
-import com.aloysius.NoteTakingApplication.Models.Author;
+import com.aloysius.NoteTakingApplication.Models.NoteUsers;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Collection;
 @RequiredArgsConstructor
 public class CustomUserDetails implements org.springframework.security.core.userdetails.UserDetails {
 
-    private final Author author;
+    private final NoteUsers noteUsers;
 
     @Override
     public String getPassword() {
-        return author.getPassword();
+        return noteUsers.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return author.getEmail();
+        return noteUsers.getEmail();
     }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

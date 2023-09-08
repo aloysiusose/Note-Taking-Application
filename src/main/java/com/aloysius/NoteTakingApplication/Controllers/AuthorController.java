@@ -1,6 +1,6 @@
 package com.aloysius.NoteTakingApplication.Controllers;
 
-import com.aloysius.NoteTakingApplication.Models.Author;
+import com.aloysius.NoteTakingApplication.Models.NoteUsers;
 import com.aloysius.NoteTakingApplication.Services.AuthorService;
 import com.aloysius.NoteTakingApplication.Services.NoteNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.*;
 public class AuthorController {
     private final AuthorService authorService;
     @PostMapping("register")
-    public void register(@RequestBody Author author) throws NoteNotFoundException {
+    public void register(@RequestBody NoteUsers noteUsers) throws NoteNotFoundException {
 
-        authorService.register(author);
+        authorService.register(noteUsers);
         // i will need email validation
 
     }

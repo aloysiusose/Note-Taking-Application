@@ -1,6 +1,6 @@
 package com.aloysius.NoteTakingApplication.Services;
 
-import com.aloysius.NoteTakingApplication.Models.Author;
+import com.aloysius.NoteTakingApplication.Models.NoteUsers;
 import com.aloysius.NoteTakingApplication.Models.Note;
 import com.aloysius.NoteTakingApplication.Repository.AuthorRepository;
 import com.aloysius.NoteTakingApplication.Repository.NoteRepository;
@@ -23,9 +23,9 @@ public class NoteServices {
     public void addNotes(Note note, String email){
 
 
-        Author author = authorRepository.findByEmail(email)
+        NoteUsers noteUsers = authorRepository.findByEmail(email)
                 .orElseThrow(()-> new UsernameNotFoundException(String.format("%s not Found", email)));
-        note.setAuthor(author);
+        note.setNoteUsers(noteUsers);
         noteRepository.save(note);
 
 //// TODO: will have to redirect to registration page.
@@ -34,7 +34,8 @@ public class NoteServices {
     public List<NoteDTO> allMyNotes(String email) throws NoteNotFoundException {
 
         return noteRepository.findByAuthorEmail(email)
-                .orElseThrow(()-> new NoteNotFoundException(String.format("Note with this %s not found", email)))
+                .orElse(List.of())
+                //.orElseThrow(()-> new NoteNotFoundException(String.format("Note with this %s not found", email)))
                 .stream().map(noteMapper::process).collect(Collectors.toList());
         //will have to query 2 tables
     }

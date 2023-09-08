@@ -1,6 +1,6 @@
 package com.aloysius.NoteTakingApplication.Services;
 
-import com.aloysius.NoteTakingApplication.Models.Author;
+import com.aloysius.NoteTakingApplication.Models.NoteUsers;
 import com.aloysius.NoteTakingApplication.Repository.AuthorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -13,17 +13,17 @@ public class AuthorService {
     private final AuthorRepository authorRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public void register(Author author) throws NoteNotFoundException {
+    public void register(NoteUsers noteUsers) throws NoteNotFoundException {
 
-        boolean emailExist = authorRepository.findByEmail(author.getEmail())
+        boolean emailExist = authorRepository.findByEmail(noteUsers.getEmail())
                         .isPresent();
 
         if (emailExist){
-            throw new NoteNotFoundException(String.format("%s already Exist", author.getEmail()));
+            throw new NoteNotFoundException(String.format("%s already Exist", noteUsers.getEmail()));
         }
-        author.setPassword(passwordEncoder.encode(author.getPassword()));
+        noteUsers.setPassword(passwordEncoder.encode(noteUsers.getPassword()));
 
-        authorRepository.save(author);
+        authorRepository.save(noteUsers);
 
 
     }

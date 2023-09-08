@@ -1,6 +1,5 @@
 package com.aloysius.NoteTakingApplication.Controllers;
 
-import com.aloysius.NoteTakingApplication.Models.Author;
 import com.aloysius.NoteTakingApplication.Models.Note;
 import com.aloysius.NoteTakingApplication.Security.Service.CustomUserDetails;
 import com.aloysius.NoteTakingApplication.Services.NoteDTO;
@@ -11,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.Principal;
 import java.util.List;
 
 @RequestMapping("/home")
