@@ -9,18 +9,21 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class NoteUsers {
     @Id
     @GeneratedValue
     private Long id;
     private String firstName;
-    private String LastName;
-    private String email;
+    private String lastName;
+    private String username;
     private String password;
 
-//
-//    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    private List<Note> note = new ArrayList<>();
+    public NoteUsers(NoteUsers users) {
+        this.id = users.id;
+        this.firstName = users.firstName;
+        this.lastName = users.lastName;
+        this.username = users.username;
+        this.password = users.password;
+    }
 }
