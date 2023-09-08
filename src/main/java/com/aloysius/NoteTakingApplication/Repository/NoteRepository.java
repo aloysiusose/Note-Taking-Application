@@ -11,7 +11,7 @@ import java.util.Optional;
 public interface NoteRepository extends JpaRepository<Note, Long> {
 
 //    @Query("SELECT p FROM note p JOIN FETCH p.author c WHERE c.email = :authorEmail")
-    Optional<List<Note>> findByAuthorEmail(@Param("authorEmail") String authorEmail);
+    Optional<List<Note>> findByNoteUsersUsername(@Param("NoteUsersUsername") String authorEmail);
 
-    Optional<Note> findByAuthorEmailAndTitle(String authorEmail, String title);
+    Optional<Note> findByNoteUsersUsernameAndTitle(String authorEmail, String title);
 }

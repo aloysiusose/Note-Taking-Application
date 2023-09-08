@@ -22,6 +22,6 @@ public class Note {
 
     @ManyToOne()
     @JoinColumn(name = "authorId")
-    private Author author;
+    private NoteUsers noteUsers;
 
 }
